@@ -1,7 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
 
-from conf.mongodb import mongodb_config
 from app.api.routers import form_routers
 
 

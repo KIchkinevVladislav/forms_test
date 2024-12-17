@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Request, HTTPException
-from pymongo.database import Database
 
 from database.mongo import get_mongo_db
 from app.utils.validate_form_value import validate_value
