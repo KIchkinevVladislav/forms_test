@@ -19,4 +19,4 @@ async def get_form(request: Request):
 
         return form_name if form_name is not None else validation_request_form
     except Exception:
-        return HTTPException(detail='Что-то пошло не так, попробуйте снова')
+        raise HTTPException(status_code=500, detail='Что-то пошло не так, попробуйте снова')
