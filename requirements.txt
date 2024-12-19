@@ -5,3 +5,5 @@ python-multipart==0.0.19
 pymongo==4.10.1
 
 environ-config==24.1.0
+
+httpx==0.28.1
