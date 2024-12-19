@@ -17,6 +17,12 @@ async def get_form(request: Request):
 
         form_name = get_form_name_from_mongo(get_mongo_db(), validation_request_form)
 
-        return form_name if form_name is not None else validation_request_form
+        if form_name is None:
+            for k, v in validation_request_form.items():
+                validation_request_form[k] = v.upper()
+
+            return validation_request_form
+        
+        return form_name
     except Exception:
         raise HTTPException(status_code=500, detail='Что-то пошло не так, попробуйте снова')
