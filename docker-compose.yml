@@ -1,0 +1,19 @@
+services:    
+  mongo:
+      image: mongo:8.0
+      restart: unless-stopped
+      volumes:
+        - ./data/mongo:/data/db
+      ports:
+          - "27017:27017"
+  
+  forms_app:
+    container_name: "forms_app"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
